@@ -1,0 +1,16 @@
+name: Test GitHub Action
+on: [push]
+
+jobs:
+    build:
+        name: Greeting job
+        runs-on: ubuntu-latest
+        steps:
+            - name: Hello World
+              uses: actions/hello-world-javascript-action@v1
+              with:
+                  who-to-greet: 'Mona the cat'
+              id: hello
+            - name: Echo the greeting time
+              run: echo 'The time was {{ steps.hello.outputs.time }}.'
+              
